@@ -1,0 +1,92 @@
+@import '../../../src/app/header/responsivity.scss';
+@import '../../../src/variables.scss';
+
+@keyframes scale {
+    from {
+        transform: scale(1) translateY(0);
+    }
+
+    to {
+        transform: scale(1.1) translateY(-8px);
+    }
+}
+
+header {
+    background-image: url('/bg.webp');
+    background-repeat: no-repeat;
+    height: 50dvh;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1240px;
+        margin: auto;
+        padding: 3dvh 3dvh;
+
+        .nav-icons {
+            display: flex;
+            flex-direction: row;
+            gap: 2dvh;
+
+            i {
+                transition: color 1s;
+            }
+
+            i:hover {
+                color: $yellow;
+                animation: scale 1s infinite alternate;
+            }
+        }
+
+        .logo {
+            i {
+                font-size: 1.7rem;
+            }
+
+            span {
+                color: $white;
+                font-size: 1.7rem;
+            }
+        }
+
+        .nav-btn {
+            button {
+                border: 1px solid $white;
+                border-radius: 2dvh;
+                background-color: transparent;
+                height: 5dvh;
+                width: 15dvh;
+                transition: border 1s;
+            }
+
+            button:hover {
+                border: 2px solid $yellow;
+            }
+        }
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+
+        .main-title {
+            color: $white;
+            font-weight: 600;
+            margin-top: 3dvh;
+        }
+
+        .hours-opening {
+            height: 5dvh;
+            width: 40dvh;
+            background-color: $red;
+            margin-top: 3dvh;
+
+            p {
+                color: $white;
+                text-align: center;
+            }
+        }
+    }
+}

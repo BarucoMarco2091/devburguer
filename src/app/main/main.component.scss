@@ -1,0 +1,147 @@
+@import '../../app/main/responsivity.scss';
+@import '../../variables.scss';
+
+main {
+    max-width: 1240px;
+    margin: auto;
+
+    .about {
+        display: flex;
+        flex-direction: column;
+        margin: 5dvh 5dvh;
+
+        div {
+            flex: 1;
+        }
+
+        .our-history {
+            text-align: center;
+            margin-right: 4dvh;
+
+            h2 {
+                font-weight: 600;
+                margin-bottom: 2dvh;
+            }
+
+            p {
+                line-height: 2rem;
+            }
+        }
+
+        .img {
+            filter: brightness(50%);
+            transition: transform .9s;
+        }
+
+        img:hover {
+            transform: rotate(2deg);
+        }
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            text-align: center;
+            margin: 5dvh 5dvh;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3dvh;
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0px -1px 17px -4px rgba(0, 0, 0, 0.45);
+                border-radius: 2dvh;
+                overflow: hidden;
+                height: 40dvh;
+
+                div {
+                    flex: 1;
+                }
+
+                .card-img {
+                    img {
+                        filter: brightness(50%);
+                        transition: transform 1s;
+                    }
+
+                    img:hover {
+                        transform: scale(1.1);
+                    }
+                }
+
+                .card-body {
+                    margin-left: 3dvh;
+                    text-align: center;
+
+                    .card-title {
+                        font-weight: 600;
+                        color: $red;
+                        margin-top: 2dvh;
+                        margin-bottom: 2dvh;
+                    }
+
+                    .card-description {
+                        line-height: 1.5rem;
+                        margin-top: 3dvh;
+                    }
+
+                    .card-info {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: 3dvh;
+
+                        .card-price {
+                            color: $red;
+                            font-weight: 600;
+                        }
+
+                        .add-to-cart-btn {
+                            border: none;
+                            margin-right: 2dvh;
+                            background-color: $black;
+                            color: $white;
+                            width: 7dvh;
+                            height: 7dvh;
+                            transition: background-color 1s;
+                        }
+
+                        .add-to-cart-btn:hover {
+                            background-color: $yellow;
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu-btn {
+            margin: 5dvh 5dvh;
+            border: none;
+            border-radius: 2dvh;
+            background-color: $red;
+            width: 30dvh;
+            height: 5dvh;
+            transition: background-color 1s;
+        }
+
+        .menu-btn:hover {
+            background-color: $yellow;
+        }
+    }
+
+    .location {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            text-align: center;
+            margin: 5dvh 5dvh;
+        }
+    }
+}

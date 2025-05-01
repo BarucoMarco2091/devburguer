@@ -1,0 +1,72 @@
+@import '../src/variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100dvh;
+    position: relative;
+    outline: none;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', serif, Arial;
+    font-size: 3rem;
+    color: $black;
+}
+
+p {
+    font-family: 'Poppins', serif, Arial;
+    font-size: 1rem;
+    color: $black;
+}
+
+span {
+    font-family: 'Poppins', serif, Arial;
+    font-size: 1rem;
+    color: $black;
+}
+
+a {
+    font-family: 'Poppins', serif, Arial;
+    font-size: 1rem;
+    color: $white;
+    cursor: pointer;
+}
+
+i {
+    font-size: 1.3rem;
+    color: $white;
+    cursor: pointer;
+}
+
+button {
+    font-family: 'Poppins', serif, Arial;
+    font-size: 1rem;
+    color: $white;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+}
+
+svg {
+    width: 100%;
+}
+
+@media (width <= 1024px) {
+    h1, h2, h3 {
+        font-size: 1.5rem;
+    }
+}
