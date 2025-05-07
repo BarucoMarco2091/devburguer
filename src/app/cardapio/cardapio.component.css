@@ -100,6 +100,7 @@ main .cart-modal-button #cart-btn {
   width: 40dvh;
   height: 5dvh;
   border: 1px solid;
+  border-radius: 2dvh;
   background-color: #FF0000;
   color: #FFFFFF;
   transition: background-color 1s;

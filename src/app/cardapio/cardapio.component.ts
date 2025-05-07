@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CardapioService } from '../services/cardapio.service';
 
 interface CardapioItem {
   name: string,
@@ -17,20 +18,12 @@ interface CardapioItem {
 })
 export class CardapioComponent {
 
-  menuItems = [
-    { name: 'Cheeseburger', description: 'Pão levinho de fermentação natural, burger 160g, queijo prato, maionese da casa, alface, tomate, cebola caramelizada.', price: 40.00, image: '/cheeseburger.webp' },
-    { name: 'Double Cheeseburger', description: 'Pão levinho de fermentação natural, burger 160g, queijo prato, maionese da casa, alface, tomate, cebola caramelizada.', price: 45.00, image: '/doublecheeseburger.webp' },
-    { name: 'Batata Frita', description: 'Nossas fritas com uma cobertura irresistível de mix de queijos e bacon. O toque final fica por conta do molho Ranch.', price: 20.00, image: '/frenchfries.webp' },
-    { name: 'Hot Dog', description: 'Pão especial para hot dog, salsicha, molho de tomate caseiro temperado, purê de batata cremoso, milho verde, vinagrete fresco.', price: 25.00, image: '/hotdog.webp' },
-    { name: 'Onion Rings', description: 'Feitos com cebolas selecionadas, eles são uma combinação de crocância e sabor em cada pedaço.', price: 20.00, image: '/onionrings.webp' },
-    { name: 'Picanha Burger', description: 'Pão levinho de fermentação natural, burger 160g, queijo prato, maionese da casa, alface, tomate, cebola caramelizada.', price: 50.00, image: '/picanhaburger.webp' },
-    { name: 'Rib Burger', description: 'Pão levinho de fermentação natural, burger 160g, queijo prato, maionese da casa, alface, tomate, cebola caramelizada.', price: 30.00, image: '/ribburger.webp' },
-  ];
-
   cart: CardapioItem[] = [];
   isModalOpen = false;
   address = '';
   showAddressWarning = false;
+
+  constructor(public cardapioService: CardapioService) {}
 
   get total(): number {
     return this.cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
