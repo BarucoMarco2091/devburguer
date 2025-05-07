@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID } from "@angular/core";
 
 interface Pastel {
     name: string;
@@ -22,19 +23,19 @@ export class CardapioService {
         { name: 'Picanha Burger', description: 'Pão levinho de fermentação natural, burger 160g, queijo prato, maionese da casa, alface, tomate, cebola caramelizada.', price: 50.00, image: '/picanhaburger.webp' },
         { name: 'Rib Burger', description: 'Pão levinho de fermentação natural, burger 160g, queijo prato, maionese da casa, alface, tomate, cebola caramelizada.', price: 30.00, image: '/ribburger.webp' },
     ];
-cardapioItems: any;
+    cardapioItems: any;
 
     get menuItems(): Pastel[] {
         return this._menuItems;
     }
 
     adicionarPastel(pastel: Pastel) {
-        this ._menuItems.push(pastel);
+        this._menuItems.push(pastel);
         this.salvarNoLocalStorage();
     }
 
     removerPastel(index: number) {
-        this ._menuItems.splice(index, 1);
+        this._menuItems.splice(index, 1);
         this.salvarNoLocalStorage();
     }
 
@@ -42,10 +43,12 @@ cardapioItems: any;
         localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this._menuItems));
     }
 
-    constructor() {
-        const salvos = localStorage.getItem(this.STORAGE_KEY);
-        if (salvos) {
-            this._menuItems = JSON.parse(salvos);
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+        if (isPlatformBrowser(this.platformId)) {
+            const salvos = localStorage.getItem(this.STORAGE_KEY);
+            if (salvos) {
+                this._menuItems = JSON.parse(salvos);
+            }
         }
     }
 }
